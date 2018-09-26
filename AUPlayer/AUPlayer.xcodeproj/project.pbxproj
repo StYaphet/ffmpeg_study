@@ -15,6 +15,8 @@
 		6ECF9FBF215BE46F00F9AEEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF9FBE215BE46F00F9AEEA /* main.m */; };
 		6ECF9FC9215BE47000F9AEEA /* AUPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF9FC8215BE47000F9AEEA /* AUPlayerTests.m */; };
 		6ECF9FD4215BE47000F9AEEA /* AUPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF9FD3215BE47000F9AEEA /* AUPlayerUITests.m */; };
+		6ECF9FEA215BE5E900F9AEEA /* AVAudioSession+RouterUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF9FE9215BE5E900F9AEEA /* AVAudioSession+RouterUtils.m */; };
+		6ECF9FED215BE8EE00F9AEEA /* ELAudioSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF9FEC215BE8EE00F9AEEA /* ELAudioSession.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		6ECF9FCF215BE47000F9AEEA /* AUPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AUPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ECF9FD3215BE47000F9AEEA /* AUPlayerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AUPlayerUITests.m; sourceTree = "<group>"; };
 		6ECF9FD5215BE47000F9AEEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6ECF9FE8215BE5E900F9AEEA /* AVAudioSession+RouterUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVAudioSession+RouterUtils.h"; sourceTree = "<group>"; };
+		6ECF9FE9215BE5E900F9AEEA /* AVAudioSession+RouterUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVAudioSession+RouterUtils.m"; sourceTree = "<group>"; };
+		6ECF9FEB215BE8EE00F9AEEA /* ELAudioSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELAudioSession.h; sourceTree = "<group>"; };
+		6ECF9FEC215BE8EE00F9AEEA /* ELAudioSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELAudioSession.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,10 @@
 		6ECF9FAE215BE46E00F9AEEA /* AUPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				6ECF9FE4215BE4E700F9AEEA /* AudioSession */,
+				6ECF9FE3215BE4E700F9AEEA /* AUPlayer */,
+				6ECF9FE1215BE4E600F9AEEA /* Resources */,
+				6ECF9FE2215BE4E700F9AEEA /* Utils */,
 				6ECF9FAF215BE46E00F9AEEA /* AppDelegate.h */,
 				6ECF9FB0215BE46E00F9AEEA /* AppDelegate.m */,
 				6ECF9FB2215BE46E00F9AEEA /* ViewController.h */,
@@ -130,6 +140,38 @@
 				6ECF9FD5215BE47000F9AEEA /* Info.plist */,
 			);
 			path = AUPlayerUITests;
+			sourceTree = "<group>";
+		};
+		6ECF9FE1215BE4E600F9AEEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6ECF9FE2215BE4E700F9AEEA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		6ECF9FE3215BE4E700F9AEEA /* AUPlayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AUPlayer;
+			sourceTree = "<group>";
+		};
+		6ECF9FE4215BE4E700F9AEEA /* AudioSession */ = {
+			isa = PBXGroup;
+			children = (
+				6ECF9FE8215BE5E900F9AEEA /* AVAudioSession+RouterUtils.h */,
+				6ECF9FE9215BE5E900F9AEEA /* AVAudioSession+RouterUtils.m */,
+				6ECF9FEB215BE8EE00F9AEEA /* ELAudioSession.h */,
+				6ECF9FEC215BE8EE00F9AEEA /* ELAudioSession.m */,
+			);
+			path = AudioSession;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,7 +305,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6ECF9FB4215BE46E00F9AEEA /* ViewController.m in Sources */,
+				6ECF9FEA215BE5E900F9AEEA /* AVAudioSession+RouterUtils.m in Sources */,
 				6ECF9FBF215BE46F00F9AEEA /* main.m in Sources */,
+				6ECF9FED215BE8EE00F9AEEA /* ELAudioSession.m in Sources */,
 				6ECF9FB1215BE46E00F9AEEA /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
