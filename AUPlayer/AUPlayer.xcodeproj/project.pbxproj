@@ -17,6 +17,8 @@
 		6ECF9FD4215BE47000F9AEEA /* AUPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF9FD3215BE47000F9AEEA /* AUPlayerUITests.m */; };
 		6ECF9FEA215BE5E900F9AEEA /* AVAudioSession+RouterUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF9FE9215BE5E900F9AEEA /* AVAudioSession+RouterUtils.m */; };
 		6ECF9FED215BE8EE00F9AEEA /* ELAudioSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF9FEC215BE8EE00F9AEEA /* ELAudioSession.m */; };
+		6ECF9FF0215C6A0300F9AEEA /* CommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF9FEF215C6A0300F9AEEA /* CommonUtils.m */; };
+		6ECF9FF3215C6A4100F9AEEA /* AUGraphPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF9FF2215C6A4100F9AEEA /* AUGraphPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		6ECF9FE9215BE5E900F9AEEA /* AVAudioSession+RouterUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVAudioSession+RouterUtils.m"; sourceTree = "<group>"; };
 		6ECF9FEB215BE8EE00F9AEEA /* ELAudioSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELAudioSession.h; sourceTree = "<group>"; };
 		6ECF9FEC215BE8EE00F9AEEA /* ELAudioSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ELAudioSession.m; sourceTree = "<group>"; };
+		6ECF9FEE215C6A0300F9AEEA /* CommonUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
+		6ECF9FEF215C6A0300F9AEEA /* CommonUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonUtils.m; sourceTree = "<group>"; };
+		6ECF9FF1215C6A4100F9AEEA /* AUGraphPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AUGraphPlayer.h; sourceTree = "<group>"; };
+		6ECF9FF2215C6A4100F9AEEA /* AUGraphPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AUGraphPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +158,8 @@
 		6ECF9FE2215BE4E700F9AEEA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				6ECF9FEE215C6A0300F9AEEA /* CommonUtils.h */,
+				6ECF9FEF215C6A0300F9AEEA /* CommonUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -159,6 +167,8 @@
 		6ECF9FE3215BE4E700F9AEEA /* AUPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				6ECF9FF1215C6A4100F9AEEA /* AUGraphPlayer.h */,
+				6ECF9FF2215C6A4100F9AEEA /* AUGraphPlayer.m */,
 			);
 			path = AUPlayer;
 			sourceTree = "<group>";
@@ -308,7 +318,9 @@
 				6ECF9FEA215BE5E900F9AEEA /* AVAudioSession+RouterUtils.m in Sources */,
 				6ECF9FBF215BE46F00F9AEEA /* main.m in Sources */,
 				6ECF9FED215BE8EE00F9AEEA /* ELAudioSession.m in Sources */,
+				6ECF9FF0215C6A0300F9AEEA /* CommonUtils.m in Sources */,
 				6ECF9FB1215BE46E00F9AEEA /* AppDelegate.m in Sources */,
+				6ECF9FF3215C6A4100F9AEEA /* AUGraphPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
