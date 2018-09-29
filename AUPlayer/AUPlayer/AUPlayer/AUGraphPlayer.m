@@ -87,7 +87,29 @@ static void CheckStatus(OSStatus status, NSString *message, BOOL fatal) {
 
 - (void)setInputSource:(BOOL)isAcc {
 	
+	OSStatus status;
+	AudioUnitParameterValue value;
+	status = AudioUnitGetParameter(_mVocalMixerUnit, kMultiChannelMixerParam_Volume, kAudioUnitScope_Output, 0, &value);
+	CheckStatus(status, @"get parameter fail", YES);
+	NSLog(@"Vocal Mixer %lf", value);
+	status = AudioUnitGetParameter(_mAccMixerUnit, kMultiChannelMixerParam_Volume, kAudioUnitScope_Input, 0, &value);
+	CheckStatus(status, @"get parameter fail", YES);
+	NSLog(@"Acc Mixer 0 %lf", value);
+	status = AudioUnitGetParameter(_mAccMixerUnit, kMultiChannelMixerParam_Volume, kAudioUnitScope_Input, 1, &value);
+	CheckStatus(status, @"get parameter fail", YES);
+	NSLog(@"Acc Mixer 1 %lf", value);
 	
+	if (isAcc) {
+		status = AudioUnitSetParameter(_mAccMixerUnit, kMultiChannelMixerParam_Volume, kAudioUnitScope_Input, 0, 0.1, 0);
+		CheckStatus(status, @"set parameter fail", YES);
+		status = AudioUnitSetParameter(_mAccMixerUnit, kMultiChannelMixerParam_Volume, kAudioUnitScope_Input, 1, 1, 0);
+		CheckStatus(status, @"set parameter fail", YES);
+	} else {
+		status = AudioUnitSetParameter(_mAccMixerUnit, kMultiChannelMixerParam_Volume, kAudioUnitScope_Input, 0, 1, 0);
+		CheckStatus(status, @"set parameter fail", YES);
+		status = AudioUnitSetParameter(_mAccMixerUnit, kMultiChannelMixerParam_Volume, kAudioUnitScope_Input, 1, 0.1, 0);
+		CheckStatus(status, @"set parameter fail", YES);
+	}
 }
 
 #pragma mark - private method
@@ -221,12 +243,83 @@ static void CheckStatus(OSStatus status, NSString *message, BOOL fatal) {
 
 - (void)setUpFilePlayer {
 	
+	OSStatus status = noErr;
+	AudioFileID musicFile;
+	CFURLRef songURL = (__bridge CFURLRef)_playPath;
+	// open the input audio file
+	status = AudioFileOpenURL(songURL, kAudioFileReadPermission, 0, &musicFile);
+	CheckStatus(status, @"Open AudioFile... ", YES);
 	
+	// tell the file player unit to load the file we want to play
+	status = AudioUnitSetProperty(_mPlayerUnit, kAudioUnitProperty_ScheduledFileIDs, kAudioUnitScope_Global, 0, &musicFile, sizeof(musicFile));
+	CheckStatus(status, @"Tell AudioFile Player Unit Load Which File... ", YES);
+	
+	AudioStreamBasicDescription fileASBD;
+	// get the audio data format from the file
+	UInt32 propSize = sizeof(fileASBD);
+	status = AudioFileGetProperty(musicFile, kAudioFilePropertyDataFormat, &propSize, &fileASBD);
+	CheckStatus(status, @"get the audio data format from the file... ", YES);
+	UInt64 nPackets;
+	UInt32 propsize = sizeof(nPackets);
+	AudioFileGetProperty(musicFile, kAudioFilePropertyAudioDataPacketCount, &propsize, &nPackets);
+	// tell the file player AU to play the entire file
+	ScheduledAudioFileRegion rgn;
+	memset(&rgn.mTimeStamp, 0, sizeof(rgn.mTimeStamp));
+	rgn.mTimeStamp.mFlags = kAudioTimeStampSampleTimeValid;
+	rgn.mTimeStamp.mSampleTime = 0;
+	rgn.mCompletionProc = NULL;
+	rgn.mCompletionProcUserData = NULL;
+	rgn.mAudioFile = musicFile;
+	rgn.mLoopCount = 0;
+	rgn.mStartFrame = 0;
+	rgn.mFramesToPlay = (UInt32)nPackets * fileASBD.mFramesPerPacket;
+	status = AudioUnitSetProperty(_mPlayerUnit, kAudioUnitProperty_ScheduledFileRegion, kAudioUnitScope_Global, 0, &rgn, sizeof(rgn));
+	CheckStatus(status, @"Set Region... ", YES);
+	
+	// prime the file player AU with default values
+	UInt32 defaultVal = 0;
+	status = AudioUnitSetProperty(_mPlayerUnit, kAudioUnitProperty_ScheduledFilePrime,
+								  kAudioUnitScope_Global, 0, &defaultVal, sizeof(defaultVal));
+	CheckStatus(status, @"Prime Player Unit With Default Value... ", YES);
+	
+	// tell the file player AU when to start playing (-1 sample time means next render cycle)
+	AudioTimeStamp startTime;
+	memset (&startTime, 0, sizeof(startTime));
+	startTime.mFlags = kAudioTimeStampSampleTimeValid;
+	startTime.mSampleTime = -1;
+	status = AudioUnitSetProperty(_mPlayerUnit, kAudioUnitProperty_ScheduleStartTimeStamp,
+								  kAudioUnitScope_Global, 0, &startTime, sizeof(startTime));
+	CheckStatus(status, @"set Player Unit Start Time... ", YES);
 }
 
 - (void)addAudioSessionInterruptedObserver {
 	
-	
+	[self removeAudioSessionInterruptedObserver];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(onNotificationAudioInterrupted:)
+												 name:AVAudioSessionInterruptionNotification
+											   object:[AVAudioSession sharedInstance]];
+}
+
+- (void)removeAudioSessionInterruptedObserver
+{
+	[[NSNotificationCenter defaultCenter] removeObserver:self
+													name:AVAudioSessionInterruptionNotification
+												  object:nil];
+}
+
+- (void)onNotificationAudioInterrupted:(NSNotification *)sender {
+	AVAudioSessionInterruptionType interruptionType = [[[sender userInfo] objectForKey:AVAudioSessionInterruptionTypeKey] unsignedIntegerValue];
+	switch (interruptionType) {
+		case AVAudioSessionInterruptionTypeBegan:
+			[self stop];
+			break;
+		case AVAudioSessionInterruptionTypeEnded:
+			[self play];
+			break;
+		default:
+			break;
+	}
 }
 
 @end
