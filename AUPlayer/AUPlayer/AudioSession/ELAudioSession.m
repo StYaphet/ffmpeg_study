@@ -33,6 +33,7 @@
 
 - (void)setCategory:(NSString *)category {
 	
+	// 根据我们需要硬件设备提供的能力设置类别。
 	_category = [category copy];
 	NSError *error = nil;
 	if (![self.audioSession setCategory:_category error:&error]) {
@@ -44,6 +45,7 @@
 	
 	_active = active;
 	NSError *error = nil;
+	// 设置采样频率，让硬件设备按照设置的采样频率来采集或者播放音频
 	if (![self.audioSession setPreferredSampleRate:self.preferredSampleRate error:&error]) {
 		NSLog(@"Error when setting sample rate on audio session: %@", error.localizedDescription);
 	}
@@ -55,6 +57,7 @@
 
 - (void)setPreferredLatency:(NSTimeInterval)preferredLatency {
 	
+	// 设置IO的buffer，buffer越小说明延迟越低
 	_preferredLatency = preferredLatency;
 	NSError *error = nil;
 	if (![self.audioSession setPreferredIOBufferDuration:_preferredLatency error:&error]) {

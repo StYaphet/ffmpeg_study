@@ -114,6 +114,8 @@ static void CheckStatus(OSStatus status, NSString *message, BOOL fatal) {
 
 #pragma mark - private method
 
+/* 构造AudioUnits的时候需要制定类型（type），子类型（subtype）以及厂商（Manufacture）。使用这些信息构造一个AudioUnit描述的结构体， */
+
 - (void)initializerPlayGraph {
 	
 	OSStatus status = noErr;
@@ -170,7 +172,7 @@ static void CheckStatus(OSStatus status, NSString *message, BOOL fatal) {
 	// 4.4 获取出VocalMixer的AudioUnit
 	status = AUGraphNodeInfo(_mPlayerGraph, _mVocalMixerNode, NULL, &_mVocalMixerUnit);
 	CheckStatus(status, @"Could not retrieve node info for VocalMixer node", YES);
-	// 4.5 q获取出AccMixer的AudioUnit
+	// 4.5 获取出AccMixer的AudioUnit
 	status = AUGraphNodeInfo(_mPlayerGraph, _mAccMixerNode, NULL, &_mAccMixerUnit);
 	CheckStatus(status, @"Could not retrieve node info for AccMixer node", YES);
 	
@@ -191,7 +193,8 @@ static void CheckStatus(OSStatus status, NSString *message, BOOL fatal) {
 	status = AudioUnitSetProperty(_mPlayerUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &stereoStreamFormat, sizeof(&stereoStreamFormat)); // 为什么这里公用一个stereoStreamFromat？
 	
 	// 5.2 配置Splitter的属性
-	status = AudioUnitSetProperty(_mSplitterUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &stereoStreamFormat, sizeof(stereoStreamFormat)); // 为什么inElement的值设置为0？
+	// OSStatus AudioUnitSetProperty(AudioUnit inUnit, AudioUnitPropertyID inID, AudioUnitScope inScope, AudioUnitElement inElement, const void *inData, UInt32 inDataSize);
+	status = AudioUnitSetProperty(_mSplitterUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Output, 0, &stereoStreamFormat, sizeof(stereoStreamFormat)); // 为什么inElement的值设置为0，0控制输出，即element0的输出scope的数据格式为上边指定的格式
 	CheckStatus(status, @"Could not Set StreamFormat for Splitter Unit", YES);
 	status = AudioUnitSetProperty(_mSplitterUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input,
 								  0, &stereoStreamFormat, sizeof(stereoStreamFormat));
