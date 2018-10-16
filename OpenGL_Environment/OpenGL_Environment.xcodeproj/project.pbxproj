@@ -15,6 +15,7 @@
 		6EB21FB42172CED600F682F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB21FB32172CED600F682F2 /* main.m */; };
 		6EB21FBE2172CED600F682F2 /* OpenGL_EnvironmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB21FBD2172CED600F682F2 /* OpenGL_EnvironmentTests.m */; };
 		6EB21FC92172CED600F682F2 /* OpenGL_EnvironmentUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB21FC82172CED600F682F2 /* OpenGL_EnvironmentUITests.m */; };
+		6EB21FD82172CF8D00F682F2 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB21FD72172CF8D00F682F2 /* OpenGLView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		6EB21FC42172CED600F682F2 /* OpenGL_EnvironmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenGL_EnvironmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB21FC82172CED600F682F2 /* OpenGL_EnvironmentUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGL_EnvironmentUITests.m; sourceTree = "<group>"; };
 		6EB21FCA2172CED600F682F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EB21FD62172CF8D00F682F2 /* OpenGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		6EB21FD72172CF8D00F682F2 /* OpenGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				6EB21FAF2172CED600F682F2 /* LaunchScreen.storyboard */,
 				6EB21FB22172CED600F682F2 /* Info.plist */,
 				6EB21FB32172CED600F682F2 /* main.m */,
+				6EB21FD62172CF8D00F682F2 /* OpenGLView.h */,
+				6EB21FD72172CF8D00F682F2 /* OpenGLView.m */,
 			);
 			path = OpenGL_Environment;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				6EB21FA92172CED400F682F2 /* ViewController.m in Sources */,
 				6EB21FB42172CED600F682F2 /* main.m in Sources */,
 				6EB21FA62172CED400F682F2 /* AppDelegate.m in Sources */,
+				6EB21FD82172CF8D00F682F2 /* OpenGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +444,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8H2FDT6QCT;
 				INFOPLIST_FILE = OpenGL_Environment/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,6 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8H2FDT6QCT;
 				INFOPLIST_FILE = OpenGL_Environment/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
