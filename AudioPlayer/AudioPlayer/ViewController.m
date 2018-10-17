@@ -7,12 +7,15 @@
 //
 
 #import "ViewController.h"
+#import "AudioPlayer.h"
 
 @interface ViewController ()
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+	AudioPlayer *_audioPlayer;
+}
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
