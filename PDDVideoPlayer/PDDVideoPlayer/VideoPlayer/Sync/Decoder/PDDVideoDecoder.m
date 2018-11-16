@@ -31,6 +31,22 @@ static NSArray *collectStreams(AVFormatContext *formatCtx, enum AVMediaType code
 	return [ma copy];
 }
 
+@implementation PDDFrame
+
+@end
+
+@implementation PDDAudioFrame
+
+@end
+
+@implementation PDDVideoFrame
+
+@end
+
+@implementation PDDBuriedPoint
+
+@end
+
 // AVRational这个结构标识一个分数，num为分数，den为分母。
 // PTS，DTS
 // AVRational time_base：时基。通过该值可以把PTS，DTS转化为真正的时间。FFMPEG其他结构体中也有这个字段，但是根据我的经验，只有AVStream中的time_base是可用的。PTS*time_base=真正的时间

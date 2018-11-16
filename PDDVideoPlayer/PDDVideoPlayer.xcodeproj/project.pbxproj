@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E0F30D5219E55380097B5B7 /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E0F30D4219E55380097B5B7 /* libiconv.2.4.0.tbd */; };
 		6EB6CA8E21744E0500D6C1DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6CA8D21744E0500D6C1DE /* AppDelegate.m */; };
 		6EB6CA9121744E0500D6C1DE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6CA9021744E0500D6C1DE /* ViewController.m */; };
 		6EB6CA9421744E0500D6C1DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB6CA9221744E0500D6C1DE /* Main.storyboard */; };
@@ -17,6 +18,9 @@
 		6EB6CAB121744E0600D6C1DE /* PDDVideoPlayerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6CAB021744E0600D6C1DE /* PDDVideoPlayerUITests.m */; };
 		6EB6CB14217450A000D6C1DE /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EB6CB132174509F00D6C1DE /* libffmpeg.a */; };
 		6EB6CB192174510100D6C1DE /* PDDVideoDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB6CB182174510100D6C1DE /* PDDVideoDecoder.m */; };
+		6ED6E6CB219A5E3A007A8B60 /* PDDAudioOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6E6CA219A5E3A007A8B60 /* PDDAudioOutput.m */; };
+		6ED6E6D0219A6024007A8B60 /* AVAudioSession+RouteUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6E6CC219A6023007A8B60 /* AVAudioSession+RouteUtils.m */; };
+		6ED6E6D1219A6024007A8B60 /* ELAudioSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED6E6CF219A6024007A8B60 /* ELAudioSession.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E0F30D4219E55380097B5B7 /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
 		6EB6CA8921744E0500D6C1DE /* PDDVideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDDVideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EB6CA8C21744E0500D6C1DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EB6CA8D21744E0500D6C1DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -130,6 +135,12 @@
 		6EB6CB132174509F00D6C1DE /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffmpeg.a; sourceTree = "<group>"; };
 		6EB6CB172174510100D6C1DE /* PDDVideoDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDDVideoDecoder.h; sourceTree = "<group>"; };
 		6EB6CB182174510100D6C1DE /* PDDVideoDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDDVideoDecoder.m; sourceTree = "<group>"; };
+		6ED6E6C9219A5E3A007A8B60 /* PDDAudioOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDDAudioOutput.h; sourceTree = "<group>"; };
+		6ED6E6CA219A5E3A007A8B60 /* PDDAudioOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDDAudioOutput.m; sourceTree = "<group>"; };
+		6ED6E6CC219A6023007A8B60 /* AVAudioSession+RouteUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAudioSession+RouteUtils.m"; sourceTree = "<group>"; };
+		6ED6E6CD219A6024007A8B60 /* ELAudioSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAudioSession.h; sourceTree = "<group>"; };
+		6ED6E6CE219A6024007A8B60 /* AVAudioSession+RouteUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAudioSession+RouteUtils.h"; sourceTree = "<group>"; };
+		6ED6E6CF219A6024007A8B60 /* ELAudioSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAudioSession.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E0F30D5219E55380097B5B7 /* libiconv.2.4.0.tbd in Frameworks */,
 				6EB6CB14217450A000D6C1DE /* libffmpeg.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +170,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E0F30D3219E55380097B5B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E0F30D4219E55380097B5B7 /* libiconv.2.4.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6EB6CA8021744E0400D6C1DE = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +185,7 @@
 				6EB6CAA421744E0600D6C1DE /* PDDVideoPlayerTests */,
 				6EB6CAAF21744E0600D6C1DE /* PDDVideoPlayerUITests */,
 				6EB6CA8A21744E0500D6C1DE /* Products */,
+				6E0F30D3219E55380097B5B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,6 +240,7 @@
 		6EB6CABE2174508B00D6C1DE /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				6ED6E6C8219A5E24007A8B60 /* AudioOutput */,
 				6EB6CB15217450D500D6C1DE /* Sync */,
 			);
 			path = VideoPlayer;
@@ -393,6 +415,19 @@
 			path = Decoder;
 			sourceTree = "<group>";
 		};
+		6ED6E6C8219A5E24007A8B60 /* AudioOutput */ = {
+			isa = PBXGroup;
+			children = (
+				6ED6E6C9219A5E3A007A8B60 /* PDDAudioOutput.h */,
+				6ED6E6CA219A5E3A007A8B60 /* PDDAudioOutput.m */,
+				6ED6E6CE219A6024007A8B60 /* AVAudioSession+RouteUtils.h */,
+				6ED6E6CC219A6023007A8B60 /* AVAudioSession+RouteUtils.m */,
+				6ED6E6CD219A6024007A8B60 /* ELAudioSession.h */,
+				6ED6E6CF219A6024007A8B60 /* ELAudioSession.m */,
+			);
+			path = AudioOutput;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -523,9 +558,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ED6E6D0219A6024007A8B60 /* AVAudioSession+RouteUtils.m in Sources */,
 				6EB6CA9121744E0500D6C1DE /* ViewController.m in Sources */,
+				6ED6E6CB219A5E3A007A8B60 /* PDDAudioOutput.m in Sources */,
 				6EB6CB192174510100D6C1DE /* PDDVideoDecoder.m in Sources */,
 				6EB6CA9C21744E0600D6C1DE /* main.m in Sources */,
+				6ED6E6D1219A6024007A8B60 /* ELAudioSession.m in Sources */,
 				6EB6CA8E21744E0500D6C1DE /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -616,6 +654,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -633,8 +672,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PDDVideoPlayer/FFmpeg/include";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/PDDVideoPlayer/FFmpeg/include";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/PDDVideoPlayer/FFmpeg";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -677,6 +716,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -688,8 +728,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PDDVideoPlayer/FFmpeg/include";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/PDDVideoPlayer/FFmpeg/include";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/PDDVideoPlayer/FFmpeg";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -705,7 +745,7 @@
 				DEVELOPMENT_TEAM = NF63K4XSG6;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = PDDVideoPlayer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -728,7 +768,7 @@
 				DEVELOPMENT_TEAM = NF63K4XSG6;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = PDDVideoPlayer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
